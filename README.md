@@ -99,3 +99,64 @@ root 'home#index'
 Restart lại sever và chạy thử
 
 ![rails-1-homepage-simple.png](http://sv1.upsieutoc.com/2017/08/11/rails-1-homepage-simple.png)
+
+## 6. Setup for asset simple
+
+Thêm vào jquery, jquery-ui, boostrap vào dự án
+
++ Thêm vào Gemfile
+
+```
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'bootstrap-sass'
+```
+
+Chạy bundle trong console `$ bundle`
+
++ Tạo các file scss căn bản
+    * app/stylesheets/_mixins.scss
+    * app/stylesheets/_variable.scss
+    * app/stylesheets/fonts.scss
+
++ Update app/stylesheets/application.scss
+
+```
+@import "_mixins";
+@import "_variables";
+@import "fonts";
+@import "jquery-ui";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+```
+
++ Update app/javascripts/application.js
+
+```
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require bootstrap-sprockets
+```
+
++ Tạo app/views/layouts/_head.html.slim
+
+```
+title Rails-1
+meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'
+meta http-equiv='X-UA-Compatible' content='IE=10; IE=11'
+meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+= csrf_meta_tags
+= stylesheet_link_tag    'application', media: 'all'
+= javascript_include_tag 'application'
+```
+
++ Update app/views/layouts/application.html.slim
+
+```
+doctype html
+html
+  head = render 'layouts/head'
+  body
+    = yield
+```
