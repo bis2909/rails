@@ -9,8 +9,8 @@ Thiệt lập ban đầu cho Rails
 Đầu tiên ta tạo thư mục là tên của dự án, ở đây sẽ dùng tên là `rails-1`, thư mục chứa dự án tên là Workspace
 
 ```
-$ mkdir ~/Workspace/awesome-project
-$ cd ~/Workspace/awesome-project
+$ mkdir ~/Workspace/rails-1
+$ cd ~/Workspace/rails-1
 ```
 
 ## 2. Thiết lập RVM
