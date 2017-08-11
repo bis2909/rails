@@ -69,3 +69,33 @@ $ erb2slim -d .
 ```
 
 Tất cả các file trong view sẽ chuyển sang html.slim
+
+## 5. Tạo hompage đơn giản
+
+### Controller
+
+Tạo controller `app/controllers/home_controller.rb`
+
+```
+class HomeController < ApplicationController
+  def index; end
+end
+```
+
+Tạo view `app/views/home/index.html.slim`
+
+```
+#home-index-container
+  .container
+    h1 Homepage
+```
+
+Thêm vào routes `app/config/routes.rb`
+
+```
+root 'home#index'
+```
+
+Restart lại sever và chạy thử
+
+![rails-1-homepage-simple.png](http://sv1.upsieutoc.com/2017/08/11/rails-1-homepage-simple.png)
