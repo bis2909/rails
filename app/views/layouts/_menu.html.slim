@@ -1,0 +1,18 @@
+.layouts-menu-container
+  nav.navbar.navbar-default.navbar-static-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to 'Rails-1', root_path, class: 'navbar-brand'
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active = link_to 'Home', root_path
+          li = link_to 'About Us', 'javascript:'
+          li = link_to 'Contact Us', 'javascript:'
+        ul.nav.navbar-nav.navbar-right
+          li = link_to 'Login', 'javascript:'
+          li = link_to 'Register', 'javascript:'

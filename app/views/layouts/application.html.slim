@@ -2,4 +2,9 @@ doctype html
 html
   head = render 'layouts/head'
   body
-    = yield
+    header
+      = render 'layouts/header'
+    main
+      = yield
+    footer
+      = render 'layouts/footer'

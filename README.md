@@ -160,3 +160,92 @@ html
   body
     = yield
 ```
+
+## 7. Tạo simple menu bằng boostrap
+
++ Tạo app/views/layouts/_header.html.slim
+
+```
+.layouts-header-container
+  = render 'layouts/menu'
+```
+
++ Tạo app/views/layouts/_menu.html.slim
+
+```
+.layouts-menu-container
+  nav.navbar.navbar-default.navbar-static-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to 'Rails-1', root_path, class: 'navbar-brand'
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active = link_to 'Home', root_path
+          li = link_to 'About Us', 'javascript:'
+          li = link_to 'Contact Us', 'javascript:'
+        ul.nav.navbar-nav.navbar-right
+          li = link_to 'Login', 'javascript:'
+          li = link_to 'Register', 'javascript:'
+```
+
++ Tạo app/views/layouts/_footer.html.slim
+
+```
+.layouts-footer-container
+  .container
+    p.text-muted Copyright © #{Time.now.year}. All Rights Reserved
+```
+
++ Update cấu trúc app/views/layouts/application.html.slim
+
+```
+doctype html
+html
+  head = render 'layouts/head'
+  body
+    header
+      = render 'layouts/header'
+    main
+      = yield
+    footer
+      = render 'layouts/footer'
+
+```
+
++ Tạo app/stylesheets/global.scss
+
+```
+body {
+  padding-bottom: 60px;
+  position: relative;
+  min-height: 100vh;
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+
+    p.text-muted {
+      margin: 20px 0;
+      text-align: center;
+    }
+  }
+}
+```
+
++ Add global.scss vào application.scss
+
+```
+@import "global";
+```
+
+Test lại
+
+![rails-1-add-simple-menu.png](http://sv1.upsieutoc.com/2017/08/12/rails-1-add-simple-menu.png)
