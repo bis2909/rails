@@ -38,3 +38,34 @@ Dòng thứ 2 là tạo mới 1 dự án rails và sử dụng postgresql thay v
 Sau khi chạy cài đặt xong chạy lệnh `$ rake db:create db:migrate`, để tạo database. Chạy `$ rails s` để khởi động dự án, truy cập `localhost:3000`
 
 ![rails-1-begin.png](http://sv1.upsieutoc.com/2017/08/11/rails-1-begin.png)
+
+## 4. Install gem slim
+
+### Gem slim
+
+Dùng để viết html một cách gắn gọn thay cho mặc định của rails là erb. Tìm hiểu thêm tại [https://github.com/slim-template/slim](https://github.com/slim-template/slim)
+
+Thêm vào `Gemfile`
+
+`gem 'slim'`
+
+Vào console chạy
+
+`$ bundle install`
+
+### Gem html2slim
+
+Dùng để chuyển tất cả các file view sang slim. Ta chỉ dùng trong môi trường dev, nên sẽ add vào group :development. Xem thêm tại [https://github.com/slim-template/html2slim](https://github.com/slim-template/html2slim)
+
+Thêm vào `Gemfile` ở trong `group :development`
+
+`gem 'html2slim'`
+
+Vào console chạy
+
+```
+$ bundle install
+$ erb2slim -d .
+```
+
+Tất cả các file trong view sẽ chuyển sang html.slim
