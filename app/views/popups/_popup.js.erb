@@ -1,0 +1,8 @@
+if($('#popup').length == 0) {
+  $('body').prepend("<%= j render 'popups/template' %>")
+}
+
+$('#popup .modal-body').html("<%= j render render_path, locals %>");
+$('#popup .modal-title').html("<%= j title %>")
+$('#popup').modal('show')
+$('#popup').attr('class', "fade in modal <%= 'popups-' + (render_path.gsub! '/', '-') %>")

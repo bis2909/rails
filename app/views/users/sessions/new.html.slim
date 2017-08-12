@@ -1,0 +1,9 @@
+#users-sessions-new-container
+  .container
+    h2 Log in
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.input :email, input_html: { autofocus: true }
+      = f.input :password
+      = f.input :remember_me, as: :boolean
+      = f.submit 'Log in', class: 'btn'
+    = render "users/shared/links"

@@ -1,0 +1,11 @@
+#users-registrations-new-container
+  .container
+    h2 Sign up
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :email
+      = f.input :password, input_html: { autocomplete: 'off' }
+      = f.input :password_confirmation, input_html: { autocomplete: 'off' }
+      = f.submit "Sign up", class: 'btn btn-primary'
+    = render "users/shared/links"

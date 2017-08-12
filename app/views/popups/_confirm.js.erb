@@ -1,0 +1,12 @@
+if($('#popup_confirm').length == 0) {
+  $('body').prepend("<%= j render 'popups/confirm_template' %>")
+}
+
+$('#popup_confirm .modal-body').html("<%= j render render_path, locals %>");
+$('#popup_confirm .modal-title').html("<%= j title %>")
+$('#popup_confirm').modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: true
+      })
+$('#popup_confirm').attr('class', "fade in modal <%= 'popups-' + (render_path.gsub! '/', '-') %>")
