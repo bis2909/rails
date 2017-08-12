@@ -1,7 +1,17 @@
+Demo rails căn bản:
++ Sign up
++ Login
++ Logout
+
+Sử dụng:
++ Bootstrap
++ gem devise
++ gem slim
+
 # Setup ban đầu
 
-Thiệt lập ban đầu cho Rails
-+ Sử dụng Boostrap
+Thiết lập ban đầu cho Rails
++ Sử dụng Bootstrap
 + Dùng `gem 'devise'` để login
 
 Từng bước để tạo dự án căn bản với rails
