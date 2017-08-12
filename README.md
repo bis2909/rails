@@ -618,3 +618,50 @@ Demo SignUp
 letter_opener sau khi đăng ký thành công
 
 ![rails-1-demo-send-mail.png](http://sv1.upsieutoc.com/2017/08/12/rails-1-demo-send-mail.png)
+
+## 10. Add test cases
+
+Thêm một số gem vào Gemfile
+
+```
+gem 'rspec-rails'         # Rails testing
+gem 'shoulda'             # rspec model testing
+gem 'factory_girl_rails'  # Generate fixtures for testing
+gem 'pry-byebug'
+gem 'pry-rails'
+gem 'dotenv-rails'
+gem 'binding_of_caller'   # Required by better_errors gem
+gem 'awesome_print'       # Pretty prints Ruby objects for inspection
+```
+
+Chạy bundle `$ bundle install`
+
+Chạy generate spec:
+
+```
+$ rails generate rspec:install
+```
+
+Update config rails_helper.rb
+
+```
+require 'spec_helper'
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
+abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'rspec/rails'
+ActiveRecord::Migration.maintain_test_schema!
+
+FactoryGirl::SyntaxRunner.class_eval do
+  include ActionDispatch::TestProcess
+end
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+  config.include FactoryGirl::Syntax::Methods
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.use_transactional_fixtures = true
+  config.infer_spec_type_from_file_location!
+  config.filter_rails_from_backtrace!
+end
+```

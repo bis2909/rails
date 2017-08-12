@@ -23,6 +23,14 @@ gem 'devise'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'letter_opener'
+  gem 'rspec-rails'         # Rails testing
+  gem 'shoulda'             # rspec model testing
+  gem 'factory_girl_rails'  # Generate fixtures for testing
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'dotenv-rails'
+  gem 'binding_of_caller'   # Required by better_errors gem
+  gem 'awesome_print'       # Pretty prints Ruby objects for inspection
 end
 
 group :development do
